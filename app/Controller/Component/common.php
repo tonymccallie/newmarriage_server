@@ -216,12 +216,12 @@ class Common {
 		$pageURL .= "://";
 		if(!empty($_SERVER['SERVER_PORT'])) {
 			if($_SERVER["SERVER_PORT"] != "80") {
-				$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$this->webroot;
+				$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].'/';//.$this->webroot;
 			} else {
-				$pageURL .= $_SERVER["SERVER_NAME"].$this->webroot;
+				$pageURL .= $_SERVER["SERVER_NAME"].'/';//.$this->webroot;
 			}
 		} else {
-			$pageURL .= 'www.grouppost.com'.$this->webroot;
+			$pageURL .= 'www.grouppost.com';//.$this->webroot;
 		}
 		return $pageURL;
 	}
