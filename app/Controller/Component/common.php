@@ -211,7 +211,7 @@ class Common {
  * @access public
  * @return void
  */
-	function currentUrl() {
+	static function currentUrl() {
 		$pageURL = 'http';
 		$pageURL .= "://";
 		if(!empty($_SERVER['SERVER_PORT'])) {
@@ -272,7 +272,7 @@ class Common {
  * @param array $config. (default: array())
  * @return void
  */
-	function email($config = array(), $message = "") {
+	static function email($config = array(), $message = "") {
 		$settings = array(
 			'to' => 'UNSET TO <info@greyback.net>',
 			'cc' => array(),

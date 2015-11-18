@@ -262,7 +262,7 @@ class UsersController extends AppController {
 	}
 	
 	function ajax_email() {
-		Configure::write('debug', 2);
+		Configure::write('debug', 0);
 		$this->layout = "ajax";
 		$this->view = "ajax";
 		
