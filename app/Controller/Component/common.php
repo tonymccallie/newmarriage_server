@@ -290,8 +290,8 @@ class Common {
 		
 		App::uses('CakeEmail', 'Network/Email');
 		$email = new CakeEmail();
-		$email->config('gmail');
-		$email->from($config['from'])
+		$email->config('aws');
+		$email->from(array('app@thehideawayexperience.com'=>'5 Days to a New Marriage'))
 			->to($config['to'])
 			->subject($config['subject'])
 			->template($config['template'])

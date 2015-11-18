@@ -261,6 +261,43 @@ class UsersController extends AppController {
 		echo $message;
 	}
 	
+	function ajax_email() {
+		Configure::write('debug', 0);
+		$this->layout = "ajax";
+		$this->view = "ajax";
+		
+		$message = array(
+			'status' => 'ERROR',
+			'data' => 'Init'
+		);
+		
+		$params = json_decode(file_get_contents('php://input'),true);
+		$params['User']['json'] = json_encode($params['data']);
+		
+		if($this->User->save($params,array('validate'=>false))) {
+			$user = $this->User->findById($params['User']['id']);
+			
+			Common::email(array(
+				'to' => $user['User']['email'],
+				'subject' => 'Self Care Quiz Results',
+				'template' => 'quiz',
+				'variables' => array(
+					'params' => $params,
+					'user' => $user
+				)
+			),'');
+			
+			$message = array(
+				'status' => 'SUCCESS',
+				'data' => $user
+			);
+		}
+		
+		$message['data'] = $params;
+		
+		echo json_encode($message);
+	}
+	
 	function ajax_cron() {
 		Configure::write('debug', 0);
 		$this->layout = "ajax";

@@ -15,6 +15,19 @@ class EmailConfig {
         'password' => 'crystalann',
         'transport' => 'Smtp'
     );
+    
+    public $aws = array(
+		'transport' => 'Aws',
+		'host' => 'ssl://email-smtp.us-east-1.amazonaws.com',
+		'port' => 465,
+		'timeout' => 30,
+		'username' => 'AKIAJUJN3UPSHR5TXDTA',
+		'password' => 'AmkgRFn6/OrjbwWo4hNQPWU1liDHjaQF19ISXpiT0lE5',
+		//'client' => null,
+		'log' => true
+		//'charset' => 'utf-8',
+		//'headerCharset' => 'utf-8',
+	);
 
 	public $smtp = array(
 		'transport' => 'Smtp',
