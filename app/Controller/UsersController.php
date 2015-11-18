@@ -272,6 +272,7 @@ class UsersController extends AppController {
 		);
 		
 		$params = json_decode(file_get_contents('php://input'),true);
+		$this->log($params);
 		$params['User']['json'] = json_encode($params['data']);
 		
 		if($this->User->save($params,array('validate'=>false))) {
