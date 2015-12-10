@@ -115,6 +115,7 @@ class UsersController extends AppController {
 						'email' => $params['email'],
 						'first_name' => $params['first_name'],
 						'last_name' => $params['last_name'],
+						'spouse_name' => $params['spouse_name'],
 						'role_id' => 2,
 						'verified' => 'NOW()',
 						'link_code' => Common::generateRandom(9,true)
@@ -261,7 +262,7 @@ class UsersController extends AppController {
 		echo $message;
 	}
 	
-	function ajax_email() {
+	function ajax_email($template = 'quiz') {
 		Configure::write('debug', 0);
 		$this->layout = "ajax";
 		$this->view = "ajax";
@@ -282,7 +283,7 @@ class UsersController extends AppController {
 			Common::email(array(
 				'to' => $user['User']['email'],
 				'subject' => 'Self Care Quiz Results',
-				'template' => 'quiz',
+				'template' => $template,
 				'variables' => array(
 					'params' => $params,
 					'user' => $user

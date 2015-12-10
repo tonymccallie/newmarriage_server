@@ -13,7 +13,7 @@
 	        </tr>
 	        <tr>
 	        	<td style="color:#666666;font-size:12px; padding: 18px;" align="center">
-					Delivered by New Marriage Ministries<br />
+					Delivered by 5 Days to a New Marriage<br />
 					You are receiving this email because you registered with <?php echo $currentUrl ?><br />
 					Be sure to add us to your address book or safe sender list so our emails get to your inbox.
 	        	</td>
