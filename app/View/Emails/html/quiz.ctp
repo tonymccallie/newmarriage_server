@@ -1,6 +1,6 @@
 <?php //var_dump(array($user,$params)) ?>
 <p><?php echo $user['User']['first_name'] ?>,</p>
-<p>Email text about what you're reading should probably go here.</p>
+<p>Email text about what you're reading should probably go here  (can be changed after app is out)</p>
 <h3>Your Overall Score:</h3>
 <h2><?php echo $params['data']['quiz']['physical']+$params['data']['quiz']['emotional']+$params['data']['quiz']['mental']+$params['data']['quiz']['spiritual'] ?></h2>
 <h4>Notes on improvements for a better physical score</h4>

@@ -262,7 +262,7 @@ class UsersController extends AppController {
 		echo $message;
 	}
 	
-	function ajax_email($template = 'quiz') {
+	function ajax_email($template = 'quiz', $problem_index = null) {
 		Configure::write('debug', 0);
 		$this->layout = "ajax";
 		$this->view = "ajax";
@@ -280,11 +280,28 @@ class UsersController extends AppController {
 		if($this->User->save($params,array('validate'=>false))) {
 			$user = $this->User->findById($params['User']['id']);
 			
+			
+			switch($template) {
+				case 'vision':
+					$subj = 'Family Vision';
+					break;
+				case 'values':
+					$subj = 'Family Values';
+					break;
+				case 'problem':
+					$subj = 'Exercise Results';
+					break;
+				default:
+					$subj = 'Self Care Quiz Results';
+					break;
+			}
+			
 			Common::email(array(
 				'to' => $user['User']['email'],
-				'subject' => 'Self Care Quiz Results',
+				'subject' => $subj,
 				'template' => $template,
 				'variables' => array(
+					'problem_index' => $problem_index,
 					'params' => $params,
 					'user' => $user
 				)
